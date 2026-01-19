@@ -1,0 +1,32 @@
+{
+  "name": "tdd",
+  "sequence": ["spec", "tests", "implementation", "docs", "tasks"],
+  "applyRequires": ["tasks"],
+  "artifacts": {
+    "spec": {
+      "deps": [],
+      "output": "artifacts/spec.md",
+      "template": "# Spec\n\n## Goal\n\n## Acceptance criteria\n- \n\n## Edge cases\n- \n\n"
+    },
+    "tests": {
+      "deps": ["spec"],
+      "output": "artifacts/tests.md",
+      "template": "# Tests Plan\n\n## Test cases\n- \n\n"
+    },
+    "implementation": {
+      "deps": ["spec", "tests"],
+      "output": "artifacts/implementation-plan.md",
+      "template": "# Implementation Plan\n\n## Approach\n\n## Key modules\n\n## Risks\n\n"
+    },
+    "docs": {
+      "deps": ["spec", "implementation"],
+      "output": "artifacts/docs.md",
+      "template": "# Docs Updates\n\n## User-facing changes\n\n## Developer notes\n\n"
+    },
+    "tasks": {
+      "deps": ["spec", "tests", "implementation", "docs"],
+      "output": "artifacts/tasks.md",
+      "template": "# Tasks\n\n- [ ] Write tests\n- [ ] Implement feature\n- [ ] Update docs\n"
+    }
+  }
+}
