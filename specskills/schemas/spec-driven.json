@@ -1,0 +1,27 @@
+{
+  "name": "spec-driven",
+  "sequence": ["proposal", "specs", "design", "tasks"],
+  "applyRequires": ["tasks"],
+  "artifacts": {
+    "proposal": {
+      "deps": [],
+      "output": "artifacts/proposal.md",
+      "template": "# Proposal\n\n## Why\n\n## What changes\n\n## Capabilities\n- \n\n## Non-goals\n- \n\n## Impact\n\n"
+    },
+    "specs": {
+      "deps": ["proposal"],
+      "output": "artifacts/specs/",
+      "template": "# Spec: <capability>\n\n## Purpose\n\n## Requirements\n\n### Requirement: <name>\nThe system SHALL ...\n\n#### Scenario: <scenario name>\n- **WHEN** ...\n- **THEN** ...\n\n"
+    },
+    "design": {
+      "deps": ["proposal", "specs"],
+      "output": "artifacts/design.md",
+      "template": "# Design\n\n## Overview\n\n## Architecture\n\n## Key decisions\n\n## Data model / APIs\n\n## Risks\n\n"
+    },
+    "tasks": {
+      "deps": ["proposal", "specs", "design"],
+      "output": "artifacts/tasks.md",
+      "template": "# Tasks\n\n- [ ] \n- [ ] \n- [ ] \n"
+    }
+  }
+}
