@@ -56,7 +56,3 @@ Main specs (source of truth) live under:
 
 Schemas live under:
 `specskills/schemas/<schema>.json`
-
-## Make this a GitHub Template repo
-After pushing to GitHub:
-- Settings → General → check “Template repository”
