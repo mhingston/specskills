@@ -1,6 +1,6 @@
 {
   "name": "specskills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Spec-driven development workflow for GitHub Copilot - Setup wizard",
   "bin": {
     "specskills": "./bin/install.js"
