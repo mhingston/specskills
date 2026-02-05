@@ -143,10 +143,10 @@ const FILES = {
   schemas: ['spec-driven.yaml', 'tdd.yaml'],
   templates: ['proposal.md', 'spec.md', 'design.md', 'tasks.md'],
   prompts: [
-    'explore.prompt.md', 'new.prompt.md', 'continue.prompt.md', 'ff.prompt.md',
-    'apply.prompt.md', 'verify.prompt.md', 'sync.prompt.md', 'archive.prompt.md',
-    'bulk-archive.prompt.md', 'status.prompt.md', 'validate.prompt.md',
-    'onboard.prompt.md', 'project-init.prompt.md'
+    'specs-explore.prompt.md', 'specs-new.prompt.md', 'specs-continue.prompt.md', 'specs-ff.prompt.md',
+    'specs-apply.prompt.md', 'specs-verify.prompt.md', 'specs-sync.prompt.md', 'specs-archive.prompt.md',
+    'specs-bulk-archive.prompt.md', 'specs-status.prompt.md', 'specs-validate.prompt.md',
+    'specs-onboard.prompt.md', 'specs-project-init.prompt.md'
   ],
   scripts: ['validate.js'],
   agents: ['specs.agent.md'],
