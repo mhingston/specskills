@@ -5,7 +5,7 @@ agent: specs
 
 # /specs-project-init
 
-Generate or update the project context document (PROJECT.md or docs/PROJECT.md). This command analyzes the codebase and creates comprehensive project documentation.
+Generate or update the project context document (docs/PROJECT.md). This command analyzes the codebase and creates comprehensive project documentation.
 
 ## Usage
 
@@ -21,7 +21,7 @@ Generate or update the project context document (PROJECT.md or docs/PROJECT.md).
    - Check if docs/PROJECT.md exists
    - Check if PROJECT.md exists at root
    - Ask user where to create/update if neither exists
-   - Default to docs/PROJECT.md (following payments project pattern)
+   - Default to docs/PROJECT.md
 
 2. **Analyze Codebase Structure**
    - Scan directory structure

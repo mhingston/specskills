@@ -150,7 +150,7 @@ const FILES = {
   ],
   scripts: ['validate.js'],
   agents: ['specs.agent.md'],
-  root: ['README.md']
+  root: []
 };
 
 async function main() {
@@ -187,21 +187,6 @@ async function main() {
     };
     
     if (!yes) {
-      log('Configuration:\n', 'header');
-      
-      if (!hasAgents) {
-        const ans = await prompt(rl, 'Create @specs agent? (yes/no) [yes]:') || 'yes';
-        config.createAgents = ans.toLowerCase() === 'yes';
-      }
-      
-      if (hasCopilot) {
-        const ans = await prompt(rl, 'Update .github/copilot-instructions.md with specs workflow section? (yes/no) [yes]:') || 'yes';
-        config.updateCopilot = ans.toLowerCase() === 'yes';
-      } else {
-        const ans = await prompt(rl, 'Create .github/copilot-instructions.md? (yes/no) [yes]:') || 'yes';
-        config.updateCopilot = ans.toLowerCase() === 'yes';
-      }
-      
       log('\nSchema:');
       log('  1. spec-driven (default) - Full workflow');
       log('  2. tdd - Test-driven development');
@@ -237,7 +222,7 @@ async function main() {
         files.push('.github/copilot-instructions.md');
       }
     }
-    files.push('README.md');
+    files.push('specs/README.md');
     files.push('specs/config.yaml');
     
     for (const f of files) log(`  + ${f}`, 'success');
@@ -324,7 +309,7 @@ async function main() {
       }
     }
     
-    copy('README.md', 'README.md');
+    copy('README.md', 'specs/README.md');
     
     // Write config
     fs.writeFileSync(
@@ -340,7 +325,7 @@ async function main() {
     log('1. Start the tutorial: /specs-onboard');
     log('2. Or create a change: /specs-new my-feature');
     log('3. Validate anytime: node specs/scripts/validate.js');
-    log('\nSee README.md for full documentation.\n');
+    log('\nSee specs/README.md for full documentation.\n');
     
   } catch (err) {
     log(`\n❌ Error: ${err.message}`, 'error');
