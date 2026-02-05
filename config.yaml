@@ -1,0 +1,85 @@
+# Specs Workflow Configuration
+# This file customizes the workflow for this project
+# All fields are optional - remove sections you don't need
+
+# Default schema to use for new changes
+# Options: spec-driven, tdd (or custom schemas in schemas/)
+schema: spec-driven
+
+# Project context that applies to all artifacts
+# This helps the AI understand your project better
+context: |
+  This is a [type of project] built with [tech stack].
+  
+  Key characteristics:
+  - [Important detail 1]
+  - [Important detail 2]
+  
+  Coding standards:
+  - [Standard 1]
+  - [Standard 2]
+
+# Rules applied during artifact generation
+# These guide the AI when creating specific artifact types
+rules:
+  # Rules for specifications
+  specs:
+    - Include error scenarios for all requirements
+    - Use SHALL for requirements, SHOULD for recommendations
+    - Every requirement MUST have at least one scenario
+    - Include performance criteria where relevant
+    - Document security implications
+    
+  # Rules for tasks
+  tasks:
+    - Break tasks into 15-60 minute chunks
+    - Include verification steps for each task
+    - Reference specific spec requirements
+    - Add testing tasks for all implementation tasks
+    - Include documentation updates where needed
+    
+  # Rules for design documents
+  design:
+    - Include ASCII diagrams for architecture
+    - Document alternatives considered
+    - Include rollback strategy
+    - Reference existing patterns in the codebase
+    - Document security considerations
+
+# Default settings for workflow behavior
+defaults:
+  # Automatically archive changes when all tasks complete
+  archiveOnComplete: true
+  
+  # Sync specs to main before archiving
+  syncBeforeArchive: true
+  
+  # Create only one artifact per /specs-continue invocation
+  createOnePerRun: true
+  
+  # Default naming convention
+  naming:
+    changeCase: kebab-case
+    capabilityCase: kebab-case
+
+# Custom templates (optional)
+# Override default templates for specific artifact types
+templates:
+  # proposal: templates/custom-proposal.md
+  # spec: templates/custom-spec.md
+  # design: templates/custom-design.md
+  # tasks: templates/custom-tasks.md
+
+# Validation settings
+validation:
+  # Require all scenarios to use Given/When/Then format
+  strictScenarioFormat: true
+  
+  # Require migration paths for removed requirements
+  requireMigrationPaths: true
+  
+  # Maximum proposal length (in lines, 0 = no limit)
+  maxProposalLines: 100
+  
+  # Minimum scenarios per requirement
+  minScenariosPerRequirement: 1

@@ -1,0 +1,52 @@
+name: tdd
+version: 1
+description: Test-driven development workflow where specifications drive tests, which drive implementation, then documentation, then task tracking.
+
+artifacts:
+  - id: spec
+    generates: spec.md
+    requires: []
+    description: Initial specification of what needs to be built. No dependencies.
+
+  - id: tests
+    generates: "tests/**/*.test.md"
+    requires: [spec]
+    description: Test specifications derived from the spec. Should be written before implementation to guide development.
+
+  - id: implementation
+    generates: implementation.md
+    requires: [tests]
+    description: Implementation notes and progress. Written alongside actual code changes. Documents what was actually built and any deviations from plan.
+
+  - id: docs
+    generates: docs.md
+    requires: [implementation]
+    description: Documentation for the feature. Written after implementation is complete to reflect actual behavior.
+
+  - id: tasks
+    generates: tasks.md
+    requires: [spec, tests]
+    applyRequires: true
+    description: Task checklist for implementation. Can be created once spec and tests are defined, marking readiness for implementation.
+
+transitions:
+  - from: spec
+    to: tests
+    when: spec.status == done
+
+  - from: tests
+    to: [implementation, tasks]
+    when: tests.status == done
+
+  - from: implementation
+    to: docs
+    when: implementation.status == done
+
+  - from: docs
+    to: complete
+    when: docs.status == done
+
+defaults:
+  createOnePerRun: true
+  archiveOnComplete: true
+  syncSpecsBeforeArchive: false

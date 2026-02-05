@@ -1,0 +1,43 @@
+name: spec-driven
+version: 1
+description: Standard spec-driven workflow progressing from proposal to specifications to design to implementation tasks.
+
+artifacts:
+  - id: proposal
+    generates: proposal.md
+    requires: []
+    description: Defines why we're making this change, what will change, and the impact. No dependencies - can be created immediately.
+
+  - id: specs
+    generates: "specs/*/spec.md"
+    requires: [proposal]
+    description: Detailed specifications for each capability. Depends on proposal being complete to understand what to specify. Use delta format for modifications.
+
+  - id: design
+    generates: design.md
+    requires: [proposal]
+    description: Technical design and architecture decisions. Can be written in parallel with specs once proposal is done.
+
+  - id: tasks
+    generates: tasks.md
+    requires: [specs, design]
+    applyRequires: true
+    description: Implementation checklist. Depends on both specs (what to build) and design (how to build it). Marked as applyRequires to indicate this is when implementation can begin.
+
+transitions:
+  - from: proposal
+    to: [specs, design]
+    when: proposal.status == done
+
+  - from: [specs, design]
+    to: tasks
+    when: specs.status == done and design.status == done
+
+  - from: tasks
+    to: complete
+    when: tasks.status == done
+
+defaults:
+  createOnePerRun: true
+  archiveOnComplete: true
+  syncSpecsBeforeArchive: true

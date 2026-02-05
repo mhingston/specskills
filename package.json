@@ -1,0 +1,33 @@
+{
+  "name": "specskills",
+  "version": "1.0.0",
+  "description": "Spec-driven development workflow for GitHub Copilot - Setup wizard",
+  "bin": {
+    "specskills": "./bin/install.js"
+  },
+  "scripts": {
+    "postinstall": "echo 'Run: npx specskills'"
+  },
+  "keywords": [
+    "specs",
+    "spec-driven",
+    "github-copilot",
+    "workflow"
+  ],
+  "author": "Specs Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    ".github/agents/",
+    ".github/copilot-instructions.md",
+    ".github/prompts/",
+    "README.md",
+    "schemas/",
+    "templates/",
+    "scripts/validate.js"
+  ]
+}
